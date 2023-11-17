@@ -12,6 +12,8 @@
 
 void pop(stack_t **stack, unsigned int line_number)
 {
+stack_t *temp_node;
+
 /*if the stack is empty */
 if (*stack == NULL)
 {
@@ -20,12 +22,10 @@ exit(EXIT_FAILURE);
 }
 
 /* Temporary pointer to hold the address of the top node */
-stack_t *temp_node;
 temp_node = *stack;
 
 *stack = temp_node->next;
 
-/* If the stack is not empty, update the previous pointer of the new top node to NULL */
 if (*stack != NULL)
 (*stack)->prev = NULL;
 
@@ -42,14 +42,15 @@ free(temp_node);
 
 void swap(stack_t **stack, unsigned int line_number)
 {
+stack_t *temp_node;
 /* Check stack conditions and swap nodes */
+
 if (*stack == NULL || (*stack)->next == NULL)
 {
 fprintf(stderr, "L%d: can't swap, stack too short\n", line_number);
 exit(EXIT_FAILURE);
 }
 
-stack_t *temp_node;
 temp_node = *stack;
 
 *stack = (*stack)->next;

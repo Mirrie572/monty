@@ -53,10 +53,12 @@ extern instruction_t instruction[];
 
 /* list of functions prototype, for execution and running the program */
 
-void _execute(char *tkn, char *arg, unsigned int *current, stack_t **stack, FILE *file);
+void _execute(char *tkn, char *arg, unsigned int *current,
+stack_t **stack, FILE *file);
 void fstack(stack_t **s);
 int strckr(char *str);
-void input_process(char *line, unsigned int *current, stack_t **stack, FILE *file);
+void input_process(char *line, unsigned int *current,
+stack_t **stack, FILE *file);
 
 /* implemented function prototypes */
 void p_all(stack_t **stack, unsigned int line_number);
@@ -73,4 +75,5 @@ void rotl(stack_t **stack, unsigned int line_number);
 void f_div(stack_t **stack, unsigned int line_number);
 void add(stack_t **stack, unsigned int line_number);
 void p_str(stack_t **stack, unsigned int line_number);
+
 #endif

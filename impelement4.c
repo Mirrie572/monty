@@ -10,15 +10,14 @@
 
 void add(stack_t **stack, unsigned int line_number)
 {
-	if (*stack == NULL || (*stack)->next == NULL)
-	{
-		fprintf(stderr, "L%d: can't add, stack too short\n", line_number);
-		exit(EXIT_FAILURE);
-	}
+if (*stack == NULL || (*stack)->next == NULL)
+{
+fprintf(stderr, "L%d: can't add, stack too short\n", line_number);
+exit(EXIT_FAILURE);
+}
 
-	(*stack)->next->n += (*stack)->n;
-	pop(stack, line_number);
-
+(*stack)->next->n += (*stack)->n;
+pop(stack, line_number);
 }
 
 /**
@@ -34,27 +33,30 @@ void add(stack_t **stack, unsigned int line_number)
 
 void p_str(stack_t **stack, unsigned int line_number)
 {
-    (void)line_number;  /* Unused parameter */
 
-    stack_t *current_node;
-    current_node = *stack;
+stack_t *current_node;
 
-    /* Traverse the stack and print ASCII characters */
-    while (current_node != NULL)
-    {
-        /* Break if the character is non-printable or the stack is empty */
-        if (current_node->n > 127 || current_node->n <= 0)
-        {
-            break;
-        }
+current_node = *stack;
 
-        /* Print the ASCII character */
-        printf("%c", current_node->n);
+(void)line_number;
+/* Unused parameter */
 
-        /* Move to the next node in the stack */
-        current_node = current_node->next;
-    }
+/* Traverse the stack and print ASCII characters */
+while (current_node != NULL)
+{
+/* Break if the character is non-printable or the stack is empty */
+if (current_node->n > 127 || current_node->n <= 0)
+{
+break;
+}
 
-    /* Print a newline character to end the output */
-    printf("\n");
+/* Print the ASCII character */
+printf("%c", current_node->n);
+
+/* Move to the next node in the stack */
+current_node = current_node->next;
+}
+
+/* Print a newline character to end the output */
+printf("\n");
 }
