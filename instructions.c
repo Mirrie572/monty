@@ -9,7 +9,7 @@ instruction_t instruction[] = {
 {"add", add},
 {"nop", nop},
 {"sub", sub},
-{"div", _div},
+{"div", f_div},
 {"mul", mul},
 {"#", nop},
 {"pchar", p_char},

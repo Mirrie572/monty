@@ -1,4 +1,4 @@
-#include "monty"
+#include "monty.h"
 
 /* new tasks  */
 
@@ -75,21 +75,22 @@ void rotr(stack_t **stack, unsigned int line_number)
 {
 	(void)line_number;
 
-    stack_t *temp, *last;
+    stack_t *tmp_node;
+    stack_t *last_node;
 
 	if (*stack == NULL || (*stack)->next == NULL)
 		return;
 
-	last = *stack;
-	while (last->next != NULL)
-		last = last->next;
+	last_node = *stack;
+	while (last_node->next != NULL)
+		last_node = last_node->next;
 
-	temp = last->prev;
-	temp->next = NULL;
-	last->prev = NULL;
-	last->next = *stack;
-	(*stack)->prev = last;
-	*stack = last;
+	tmp_node = last_node->prev;
+	tmp_node->next = NULL;
+	last_node->prev = NULL;
+	last_node->next = *stack;
+	(*stack)->prev = last_node;
+	*stack = last_node;
 }
 
 /**
@@ -115,7 +116,7 @@ void mul(stack_t **stack, unsigned int line_number)
 }
 
 /**
- * div -  function that Divide the top two elements of the stack.
+ * f_div -  function that Divide the top two elements of the stack.
  * @stack: A pointer to the stack.
  * @line_number: The current line number.
  * 
@@ -123,7 +124,7 @@ void mul(stack_t **stack, unsigned int line_number)
  */
 
 
-void div(stack_t **stack, unsigned int line_number)
+void f_div(stack_t **stack, unsigned int line_number)
 {
 	if (*stack == NULL || (*stack)->next == NULL)
 	{

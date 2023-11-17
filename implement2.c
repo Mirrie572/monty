@@ -20,7 +20,8 @@ exit(EXIT_FAILURE);
 }
 
 /* Temporary pointer to hold the address of the top node */
-stack_t *temp_node = *stack;
+stack_t *temp_node;
+temp_node = *stack;
 
 *stack = temp_node->next;
 
@@ -48,7 +49,8 @@ fprintf(stderr, "L%d: can't swap, stack too short\n", line_number);
 exit(EXIT_FAILURE);
 }
 
-stack_t *temp_node = *stack;
+stack_t *temp_node;
+temp_node = *stack;
 
 *stack = (*stack)->next;
 
