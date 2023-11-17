@@ -5,6 +5,7 @@ instruction_t instruction[] = {
 {"pall", p_all},
 {"pint", p_int},
 {"swap", swap},
+{"pstr", p_str},
 {"pop", pop},
 {"add", add},
 {"nop", nop},

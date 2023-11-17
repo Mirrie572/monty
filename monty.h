@@ -72,4 +72,5 @@ void rotr(stack_t **stack, unsigned int line_number);
 void rotl(stack_t **stack, unsigned int line_number);
 void f_div(stack_t **stack, unsigned int line_number);
 void add(stack_t **stack, unsigned int line_number);
+void p_str(stack_t **stack, unsigned int line_number);
 #endif
