@@ -4,6 +4,8 @@
 #define _GNU_SOURCE
 
 #include <stdio.h>
+#include <sys/types.h>
+#include <fcntl.h>
 #include <string.h>
 #include <stddef.h>
 #include <stdlib.h>
@@ -12,6 +14,7 @@
 #include <ctype.h>
 
 /* structures used in this project */
+
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
  * @n: integer
@@ -21,12 +24,14 @@
  * Description: doubly linked list node structure
  * for stack, queues, LIFO, FIFO
  */
+
 typedef struct stack_s
 {
-        int n;
-        struct stack_s *prev;
-        struct stack_s *next;
+int n;
+struct stack_s *prev;
+struct stack_s *next;
 } stack_t;
+
 /**
  * struct instruction_s - opcode and its function
  * @opcode: the opcode
@@ -35,12 +40,35 @@ typedef struct stack_s
  * Description: opcode and its function
  * for stack, queues, LIFO, FIFO
  */
+
 typedef struct instruction_s
 {
-        char *opcode;
-        void (*f)(stack_t **stack, unsigned int line_number);
+char *opcode;
+void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
 /* the external variable used in this project */
+extern instruction_t instruction[];
 
-extern stack_t *head;
+
+/* list of functions prototype, for execution and running the program */
+
+void _execute(char *tkn, char *arg, unsigned int *current, stack_t **stack, FILE *file);
+void fstack(stack_t **s);
+int strckr(char *str);
+void input_process(char *line, unsigned int *current, stack_t **stack, FILE *file);
+
+/* implemented function prototypes */
+void p_all(stack_t **stack, unsigned int line_number);
+void p_int(stack_t **stack, unsigned int line_number);
+void push(stack_t **stack, unsigned int line_number);
+void nop(stack_t **stack, unsigned int line_number);
+void swap(stack_t **stack, unsigned int line_number);
+void pop(stack_t **stack, unsigned int line_number);
+void p_char(stack_t **stack, unsigned int line_number);
+void sub(stack_t **stack, unsigned int line_number);
+void mul(stack_t **stack, unsigned int line_number);
+void rotr(stack_t **stack, unsigned int line_number);
+void rotl(stack_t **stack, unsigned int line_number);
+void div(stack_t **stack, unsigned int line_number);
+#endif
